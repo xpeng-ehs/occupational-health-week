@@ -967,6 +967,226 @@ body {
 .fw-700 { font-weight: 700; }
 .mt-8 { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
+
+/* ===== HERO MOTTO ===== */
+.hero-motto {
+  color: #fff;
+  font-size: clamp(15px, 2.5vw, 20px);
+  font-weight: 700;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 4px;
+  margin-top: 8px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  animation: fade-up 1s ease both;
+  animation-delay: 0.5s;
+}
+
+/* ===== CLOSING SECTION ===== */
+.closing-section {
+  background: var(--bg);
+}
+
+.closing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.closing-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border: 1px solid var(--bg-dark);
+  transition: all 0.3s;
+}
+.closing-card:hover {
+  border-color: var(--teal-light);
+  box-shadow: 0 8px 24px rgba(14,124,134,0.1);
+  transform: translateX(4px);
+}
+.closing-card-num {
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+.closing-card-text {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+.closing-card-text strong { color: var(--teal-dark); font-size: 16px; display: block; margin-bottom: 6px; }
+
+.closing-quote {
+  margin-top: 48px;
+  text-align: center;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+  border-radius: 20px;
+  color: #fff;
+}
+.closing-quote-text {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.closing-quote-attr {
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+}
+
+/* ===== SIDE NAV WITH LABELS ===== */
+.nav-dots {
+  right: 0 !important;
+  background: rgba(8,89,96,0.82);
+  backdrop-filter: blur(12px);
+  border-radius: 14px 0 0 14px;
+  padding: 12px 8px;
+  gap: 4px !important;
+  border: 1px solid rgba(27,168,181,0.3);
+  border-right: none;
+}
+
+.nav-dot {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 32px !important;
+  transition: all 0.25s !important;
+}
+.nav-dot:hover {
+  width: auto !important;
+  background: rgba(255,255,255,0.12) !important;
+  opacity: 1 !important;
+}
+.nav-dot .dot-pip {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+  transition: all 0.25s;
+}
+.nav-dot.active .dot-pip {
+  background: var(--amber-light);
+  box-shadow: 0 0 8px var(--amber-light);
+}
+.nav-dot .dot-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 1px;
+  font-family: 'Noto Sans SC', sans-serif;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.nav-dot:hover .dot-label,
+.nav-dot.active .dot-label {
+  opacity: 1;
+  max-width: 100px;
+}
+.nav-dot.active {
+  transform: none !important;
+  width: auto !important;
+  background: rgba(255,255,255,0.15) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .nav-dots { display: none; }
+}
+
+/* ===== AWARENESS RIBBON - only hero ===== */
+.awareness-ribbon.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
+  transition: all 0.4s;
+}
+.awareness-ribbon {
+  transition: all 0.4s;
+}
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 480px) {
+  .section { padding: 60px 16px; }
+  .hero-date { flex-direction: column; align-items: center; gap: 10px; }
+  .date-pill { font-size: 13px; padding: 8px 18px; }
+  .principle-box { flex-direction: column; gap: 12px; text-align: center; }
+  .principle-icon { font-size: 36px; }
+  
+  /* checkup flow - stack vertically on mobile */
+  .checkup-flow { flex-direction: column; overflow-x: visible; }
+  .checkup-step { min-width: unset; padding: 0; }
+  .checkup-step::after { 
+    content: '↓'; 
+    position: static; 
+    display: block; 
+    text-align: center; 
+    margin: 8px 0;
+    font-size: 20px;
+  }
+  .checkup-step:last-child::after { display: none; }
+  
+  /* action items mobile */
+  .action-item { gap: 16px; }
+  .actions-timeline::before { left: 20px; }
+  
+  /* myth answer mobile */
+  .myth-answer-inner { flex-direction: column; gap: 10px; }
+  
+  /* compare wrapper mobile already handled but ensure no overflow */
+  .compare-card { padding: 22px; }
+  
+  /* closing quote mobile */
+  .closing-quote { padding: 28px 20px; }
+  
+  .awareness-ribbon { 
+    font-size: 11px;
+    padding: 8px 16px;
+    max-width: calc(100vw - 32px);
+    white-space: normal;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  /* checkup flow stacks on tablet too */
+  .checkup-flow { flex-direction: column; overflow-x: visible; }
+  .checkup-step { min-width: unset; margin-bottom: 0; }
+  .checkup-step::after { 
+    content: '↓'; 
+    position: static; 
+    display: block; 
+    text-align: center; 
+    margin: 8px 0; 
+  }
+  .checkup-step:last-child::after { display: none; }
+}
 </style>
 </head>
 <body>
@@ -985,14 +1205,16 @@ body {
 
 <!-- NAV DOTS -->
 <nav class="nav-dots" id="navDots">
-  <button class="nav-dot active" data-section="hero" title="封面"></button>
-  <button class="nav-dot" data-section="intro" title="了解法律"></button>
-  <button class="nav-dot" data-section="comparison" title="安全vs健康"></button>
-  <button class="nav-dot" data-section="hazards" title="职业危害"></button>
-  <button class="nav-dot" data-section="actions" title="五项行动"></button>
-  <button class="nav-dot" data-section="checkup" title="健康检查"></button>
-  <button class="nav-dot" data-section="myths" title="误区辨析"></button>
-  <button class="nav-dot" data-section="rights" title="你的权利"></button>
+  <button class="nav-dot active" data-section="hero"><span class="dot-pip"></span><span class="dot-label">封面</span></button>
+  <button class="nav-dot" data-section="intro"><span class="dot-pip"></span><span class="dot-label">了解法律</span></button>
+  <button class="nav-dot" data-section="comparison"><span class="dot-pip"></span><span class="dot-label">安全vs健康</span></button>
+  <button class="nav-dot" data-section="hazards"><span class="dot-pip"></span><span class="dot-label">职业危害</span></button>
+  <button class="nav-dot" data-section="actions"><span class="dot-pip"></span><span class="dot-label">五项行动</span></button>
+  <button class="nav-dot" data-section="checkup"><span class="dot-pip"></span><span class="dot-label">健康检查</span></button>
+  <button class="nav-dot" data-section="myths"><span class="dot-pip"></span><span class="dot-label">误区辨析</span></button>
+  <button class="nav-dot" data-section="rights"><span class="dot-pip"></span><span class="dot-label">你的权利</span></button>
+  <button class="nav-dot" data-section="closing"><span class="dot-pip"></span><span class="dot-label">总结寄语</span></button>
+  <button class="nav-dot" data-section="exceptions"><span class="dot-pip"></span><span class="dot-label">体检豁免</span></button>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -1001,13 +1223,14 @@ body {
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
     <div class="ring"></div><div class="ring"></div>
   </div>
-  <div class="badge"><div class="badge-dot"></div>小鹏汽车 EHS 职业健康</div>
+  <div class="badge"><div class="badge-dot"></div>小鹏汽车安全管理办公室 发布</div>
   <h1 class="hero-title">
     <span class="line1">第24届全国</span>
     <span class="line2">职业病防治法</span>
     <span class="line3">宣传周</span>
   </h1>
   <p class="hero-sub">你的健康，比任何工作都重要</p>
+  <p class="hero-motto">守护职业健康 共建健康小鹏</p>
   <div class="hero-date">
     <div class="date-pill">📅 2026年4月25日—5月1日</div>
     <div class="date-pill">🏭 全员宣贯</div>
@@ -1023,17 +1246,17 @@ body {
   <div class="section-inner">
     <div class="section-label reveal">01 · 了解法律</div>
     <h2 class="section-title reveal">《职业病防治法》是干什么的？</h2>
-    <p class="section-desc reveal">这部法律专门保护在岗职工的身体健康，确保每一位工作中的人都能得到应有的保护。</p>
+    <p class="section-desc reveal">这部法律专门保护在岗同学的身体健康，确保每一位工作中的人都能得到应有的保护。</p>
     <div class="intro-grid reveal">
       <div class="intro-card">
         <div class="intro-card-icon">🛡️</div>
         <div class="intro-card-q">保护谁？</div>
-        <div class="intro-card-a"><strong>所有在企业里干活的人。</strong><br>不分岗位、不分工龄，每一位员工都受到保护。</div>
+        <div class="intro-card-a"><strong>所有在企业里干活的人。</strong><br>不分岗位、不分工龄，每一位同学都受到保护。</div>
       </div>
       <div class="intro-card">
         <div class="intro-card-icon">🏢</div>
         <div class="intro-card-q">谁负责？</div>
-        <div class="intro-card-a"><strong>用人单位（公司）是第一责任人。</strong><br>主要负责人对本单位职业病防治工作全面负责。</div>
+        <div class="intro-card-a"><strong>公司是第一责任人。</strong><br>主要负责人对本单位职业病防治工作全面负责。</div>
       </div>
       <div class="intro-card">
         <div class="intro-card-icon">🔬</div>
@@ -1043,7 +1266,7 @@ body {
       <div class="intro-card">
         <div class="intro-card-icon">⚙️</div>
         <div class="intro-card-q">机制是什么？</div>
-        <div class="intro-card-a"><strong>用人单位负责、行政机关监管、行业自律、职工参与和社会监督</strong>五位一体的防治机制。</div>
+        <div class="intro-card-a"><strong>公司负责、国家卫生健康委员会监管、行业自律、同学参与和社会监督</strong>五位一体的防治机制。</div>
       </div>
     </div>
     <div class="principle-box reveal">
@@ -1082,14 +1305,15 @@ body {
       <div class="compare-card health">
         <div class="compare-icon">🫁</div>
         <div class="compare-title">职业健康</div>
-        <div class="compare-en">HEALTH</div>
+        <div class="compare-en">OCCUPATIONAL HEALTH</div>
         <div class="compare-desc">主要关注<strong>长期慢性健康损害</strong>，目标是防止"职业病"和工作相关疾病。</div>
         <div class="compare-examples">
           <span class="compare-tag">尘肺病</span>
-          <span class="compare-tag">职业性耳聋</span>
+          <span class="compare-tag">职业性噪声聋</span>
           <span class="compare-tag">职业中毒</span>
           <span class="compare-tag">接触性皮炎</span>
-          <span class="compare-tag">工伤关节病</span>
+          <span class="compare-tag">制造业腕管综合征</span>
+          <span class="compare-tag">职业性中暑</span>
         </div>
       </div>
     </div>
@@ -1134,7 +1358,7 @@ body {
         <div class="hazard-item">
           <div class="hazard-item-icon">🔊</div>
           <div class="hazard-item-name">噪声</div>
-          <div class="hazard-item-risk">长期暴露超过85dB的噪声环境，导致毛细胞损伤。<span>可致职业性耳聋</span></div>
+          <div class="hazard-item-risk">长期暴露超过85dB的噪声环境，导致毛细胞损伤。<span>可致职业性噪声聋</span></div>
         </div>
         <div class="hazard-item">
           <div class="hazard-item-icon">🌡️</div>
@@ -1196,7 +1420,7 @@ body {
       <div class="action-item">
         <div class="action-num">🏥</div>
         <div class="action-content">
-          <div class="action-title">职业健康检查（员工的权利）</div>
+          <div class="action-title">职业健康检查（同学的权利）</div>
           <div class="action-desc">包括<strong>上岗前检查</strong>（看是否有禁忌证）、<strong>在岗期间定期检查</strong>（早期发现损害）、<strong>离岗时检查</strong>（划清责任，留存证据）。这是你的权利且不得放弃。</div>
           <div class="action-tags"><span class="action-tag">上岗前</span><span class="action-tag">在岗定期</span><span class="action-tag">离岗时</span></div>
         </div>
@@ -1246,7 +1470,7 @@ body {
         <div class="checkup-circle">🔄</div>
         <div class="checkup-label">在岗定期检查</div>
         <div class="checkup-timing">工作期间定期</div>
-        <div class="checkup-desc">监测长期健康影响，早期发现损害，及时干预。是保护劳动者最重要的一道主动防线。</div>
+        <div class="checkup-desc">监测长期健康影响，早期发现损害，及时干预。是保护同学最重要的一道主动防线。</div>
       </div>
       <div class="checkup-step">
         <div class="checkup-circle">🚪</div>
@@ -1339,7 +1563,7 @@ body {
         <div class="myth-answer">
           <div class="myth-answer-inner">
             <div class="myth-verdict false">✗ 原则上不行</div>
-            <div class="myth-a-text">《职业病防治法》规定：接触职业病危害的劳动者，必须完成离岗职业健康检查后才能解除劳动合同。<br>只有两种例外：<strong>①</strong>离岗前90天内已做过在岗检查且结果正常、危害无变化；<strong>②</strong>接触危害岗位不足30天且实际危害浓度低于国家标准。<br>⚠️ 接触苯的氨基与硝基化合物、光气等特殊危害的人员，<strong>无论任何情况都必须做离岗体检</strong>。</div>
+            <div class="myth-a-text">《职业病防治法》规定：接触职业病危害的同学，必须完成离岗职业健康检查后才能解除劳动合同。<br>只有两种例外：<strong>①</strong>离岗前90天内已做过在岗检查且结果正常、危害无变化；<strong>②</strong>接触危害岗位不足30天且实际危害浓度低于国家标准。</div>
           </div>
         </div>
       </div>
@@ -1369,7 +1593,7 @@ body {
   <div class="section-inner">
     <div class="section-label reveal">07 · 你的权利</div>
     <h2 class="section-title reveal">法律赋予你的权利</h2>
-    <p class="section-desc reveal">这些是《职业病防治法》明确赋予每一位劳动者的权利，了解它，用好它。</p>
+    <p class="section-desc reveal">这些是《职业病防治法》明确赋予每一位同学的权利，了解它，用好它。</p>
     <div class="rights-grid reveal">
       <div class="right-item">
         <div class="right-icon">📋</div>
@@ -1431,17 +1655,61 @@ body {
     </div>
     <div class="warning-box reveal">
       <div class="warning-icon">⚠️</div>
-      <div class="warning-text"><strong>特殊危害人员无豁免：</strong>接触苯的氨基与硝基化合物、光气等特殊危害的人员，无论工作时间长短、危害是否超标，都必须做离岗体检，无任何豁免情形。</div>
+      <div class="warning-text"><strong>具体实践：</strong>请以各属地管理部门意见为准。</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== CLOSING SUMMARY ===== -->
+<section class="section closing-section" id="closing">
+  <div class="section-inner">
+    <div class="section-label reveal">09 · 总结与寄语</div>
+    <h2 class="section-title reveal">职业健康，关乎每一个人</h2>
+    <p class="section-desc reveal">读到这里，我们一起回顾这段旅程的意义。</p>
+    <div class="closing-cards reveal">
+      <div class="closing-card">
+        <div class="closing-card-num">①</div>
+        <div class="closing-card-text">
+          <strong>法律是底线，健康是目标。</strong>
+          《职业病防治法》不只是一部写在纸上的规章，它是国家对每一位在岗同学的承诺。法律的存在，是为了让我们每个人在退休那天，依然拥有健康的身体去享受生活。
+        </div>
+      </div>
+      <div class="closing-card">
+        <div class="closing-card-num">②</div>
+        <div class="closing-card-text">
+          <strong>预防，永远比治疗有价值。</strong>
+          尘肺病、职业性噪声聋——许多职业病一旦发生，便无法逆转。工程控制、合理防护、定期检查，这些看似"麻烦"的举措，是我们对自己未来最好的投资。
+        </div>
+      </div>
+      <div class="closing-card">
+        <div class="closing-card-num">③</div>
+        <div class="closing-card-text">
+          <strong>权利要懂得，也要敢于使用。</strong>
+          知情权、检查权、调岗权——这些不是"申请来的福利"，而是法律赋予你的权利。了解它们，在需要时理性、合法地维护自己的健康权益。
+        </div>
+      </div>
+      <div class="closing-card">
+        <div class="closing-card-num">④</div>
+        <div class="closing-card-text">
+          <strong>健康小鹏，从每一位同学开始。</strong>
+          汽车是我们造的，安全文化也是我们共同塑造的。每一次正确佩戴防护用品，每一次按时完成职业健康检查，都是在为自己、为同伴、为这个团队添砖加瓦。
+        </div>
+      </div>
+    </div>
+    <div class="closing-quote reveal">
+      <div class="closing-quote-text">"职业健康不是一个人的事，<br>是每一个小鹏人共同守护的事业。"</div>
+      <div class="closing-quote-attr">—— 小鹏汽车安全管理办公室</div>
     </div>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="footer-logo">小鹏汽车 · EHS 职业健康安全</div>
+  <div class="footer-logo">小鹏汽车 · 职业健康安全 · 安全管理办公室</div>
   <div class="footer-sub">Environmental Health & Safety</div>
   <div class="footer-divider"></div>
-  <div class="footer-notice">第24届全国《职业病防治法》宣传周 · 2026年4月25日—5月1日<br>保护职业健康是法律责任，更是对每一位员工的承诺。<br>如有疑问请联系公司EHS部门。</div>
+  <div class="footer-notice">保护职业健康是法律责任，更是对每一位同学的承诺。<br>如有疑问请联系各部门安全窗口及部门HRBP，<br>实际管理要求以各属地部门管理制度及公司程序要求为准。</div>
 </footer>
 
 <script>
@@ -1518,7 +1786,7 @@ window.addEventListener('scroll', checkReveal);
 checkReveal();
 
 // ===== NAV DOTS =====
-const sections = ['hero','intro','comparison','hazards','actions','checkup','myths','rights'];
+const sections = ['hero','intro','comparison','hazards','actions','checkup','myths','rights','closing','exceptions'];
 const dots = document.querySelectorAll('.nav-dot');
 
 dots.forEach((dot,i)=>{
@@ -1534,6 +1802,16 @@ window.addEventListener('scroll',()=>{
     if(el && el.getBoundingClientRect().top < window.innerHeight/2) current=i;
   });
   dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+  // Hide ribbon after scrolling past hero
+  const heroEl = document.getElementById('hero');
+  const ribbon = document.querySelector('.awareness-ribbon');
+  if(ribbon){
+    if(heroEl && heroEl.getBoundingClientRect().bottom < 0){
+      ribbon.classList.add('hidden');
+    } else {
+      ribbon.classList.remove('hidden');
+    }
+  }
 });
 
 // ===== HAZARD TABS =====
