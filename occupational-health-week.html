@@ -912,18 +912,18 @@ body {
 
 /* ===== FLOATING AWARENESS BANNER ===== */
 .awareness-ribbon {
-  position: fixed;
+  position: absolute;
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(8,89,96,0.92);
+  background: rgba(8,89,96,0.82);
   backdrop-filter: blur(16px);
   color: #fff;
   font-size: 13px;
   padding: 10px 24px;
   border-radius: 50px;
   border: 1px solid rgba(27,168,181,0.4);
-  z-index: 999;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1027,91 +1027,77 @@ body {
 }
 .closing-card-text strong { color: var(--teal-dark); font-size: 16px; display: block; margin-bottom: 6px; }
 
-.closing-quote {
-  margin-top: 48px;
-  text-align: center;
-  padding: 40px 32px;
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-  border-radius: 20px;
-  color: #fff;
-}
-.closing-quote-text {
-  font-family: 'Noto Serif SC', serif;
-  font-size: clamp(18px, 3vw, 26px);
-  font-weight: 700;
-  line-height: 1.6;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-.closing-quote-attr {
-  font-size: 14px;
-  opacity: 0.7;
-  letter-spacing: 2px;
-}
+
 
 /* ===== SIDE NAV WITH LABELS ===== */
 .nav-dots {
   right: 0 !important;
-  background: rgba(8,89,96,0.82);
+  background: rgba(8,89,96,0.88);
   backdrop-filter: blur(12px);
   border-radius: 14px 0 0 14px;
-  padding: 12px 8px;
-  gap: 4px !important;
+  padding: 10px 6px;
+  gap: 2px !important;
   border: 1px solid rgba(27,168,181,0.3);
   border-right: none;
+  min-width: 28px;
 }
 
 .nav-dot {
-  width: auto !important;
+  width: 28px !important;
   height: auto !important;
   border-radius: 8px !important;
   background: transparent !important;
-  display: flex;
+  opacity: 1 !important;
+  display: flex !important;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px !important;
+  gap: 0;
+  padding: 6px 6px !important;
   white-space: nowrap;
   overflow: hidden;
-  width: 32px !important;
-  transition: all 0.25s !important;
+  transition: width 0.25s ease, background 0.25s ease !important;
+  transform: none !important;
 }
 .nav-dot:hover {
   width: auto !important;
   background: rgba(255,255,255,0.12) !important;
-  opacity: 1 !important;
+  gap: 8px;
+  padding: 6px 10px !important;
 }
 .nav-dot .dot-pip {
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.4);
   flex-shrink: 0;
-  transition: all 0.25s;
+  transition: background 0.25s, box-shadow 0.25s;
 }
 .nav-dot.active .dot-pip {
   background: var(--amber-light);
-  box-shadow: 0 0 8px var(--amber-light);
+  box-shadow: 0 0 6px var(--amber-light);
 }
 .nav-dot .dot-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 1px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.5px;
   font-family: 'Noto Sans SC', sans-serif;
-  opacity: 0;
   max-width: 0;
   overflow: hidden;
-  transition: all 0.25s;
+  transition: max-width 0.25s ease, opacity 0.2s ease;
+  opacity: 0;
   white-space: nowrap;
 }
-.nav-dot:hover .dot-label,
-.nav-dot.active .dot-label {
+.nav-dot:hover .dot-label {
+  max-width: 120px;
   opacity: 1;
-  max-width: 100px;
 }
 .nav-dot.active {
-  transform: none !important;
   width: auto !important;
   background: rgba(255,255,255,0.15) !important;
-  opacity: 1 !important;
+  gap: 8px;
+  padding: 6px 10px !important;
+}
+.nav-dot.active .dot-label {
+  max-width: 120px;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -1119,15 +1105,7 @@ body {
 }
 
 /* ===== AWARENESS RIBBON - only hero ===== */
-.awareness-ribbon.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(-20px);
-  transition: all 0.4s;
-}
-.awareness-ribbon {
-  transition: all 0.4s;
-}
+
 
 /* ===== MOBILE FIXES ===== */
 @media (max-width: 480px) {
@@ -1163,15 +1141,7 @@ body {
   /* closing quote mobile */
   .closing-quote { padding: 28px 20px; }
   
-  .awareness-ribbon { 
-    font-size: 11px;
-    padding: 8px 16px;
-    max-width: calc(100vw - 32px);
-    white-space: normal;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+
 }
 
 @media (max-width: 640px) {
@@ -1193,12 +1163,6 @@ body {
 
 <!-- READ PROGRESS -->
 <div class="read-progress" id="readProgress"></div>
-
-<!-- FLOATING RIBBON -->
-<div class="awareness-ribbon">
-  <div class="ribbon-dot"></div>
-  <span>第24个全国职业病防治法宣传周 · 2026年4月25日—5月1日</span>
-</div>
 
 <!-- PARTICLES -->
 <canvas id="particles-canvas"></canvas>
@@ -1223,6 +1187,7 @@ body {
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
     <div class="ring"></div><div class="ring"></div>
   </div>
+  <div class="awareness-ribbon"><div class="ribbon-dot"></div><span>第24个全国职业病防治法宣传周 · 2026年4月25日—5月1日</span></div>
   <div class="badge"><div class="badge-dot"></div>小鹏汽车安全管理办公室 发布</div>
   <h1 class="hero-title">
     <span class="line1">第24届全国</span>
@@ -1697,10 +1662,7 @@ body {
         </div>
       </div>
     </div>
-    <div class="closing-quote reveal">
-      <div class="closing-quote-text">"职业健康不是一个人的事，<br>是每一个小鹏人共同守护的事业。"</div>
-      <div class="closing-quote-attr">—— 小鹏汽车安全管理办公室</div>
-    </div>
+
   </div>
 </section>
 
@@ -1802,16 +1764,7 @@ window.addEventListener('scroll',()=>{
     if(el && el.getBoundingClientRect().top < window.innerHeight/2) current=i;
   });
   dots.forEach((d,i)=>d.classList.toggle('active',i===current));
-  // Hide ribbon after scrolling past hero
-  const heroEl = document.getElementById('hero');
-  const ribbon = document.querySelector('.awareness-ribbon');
-  if(ribbon){
-    if(heroEl && heroEl.getBoundingClientRect().bottom < 0){
-      ribbon.classList.add('hidden');
-    } else {
-      ribbon.classList.remove('hidden');
-    }
-  }
+
 });
 
 // ===== HAZARD TABS =====
