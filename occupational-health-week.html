@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第24届全国职业病防治法宣传周 · 小鹏汽车EHS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --teal: #0E7C86;
+  --teal-light: #1BA8B5;
+  --teal-dark: #085960;
+  --amber: #E8A020;
+  --amber-light: #F5C842;
+  --red: #D44040;
+  --bg: #F0F6F7;
+  --bg-dark: #E2EEF0;
+  --white: #FFFFFF;
+  --ink: #1A2E30;
+  --ink-mid: #3A5558;
+  --ink-light: #6A8A8E;
+  --green: #2E9E60;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+/* ===== FLOATING PARTICLES ===== */
+#particles-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ===== HEADER HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 50%, #0EA89A 100%);
+  z-index: 1;
+}
+
+.hero-bg-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-ring 4s ease-in-out infinite;
+}
+.ring:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
+.ring:nth-child(2) { width: 500px; height: 500px; animation-delay: 0.5s; }
+.ring:nth-child(3) { width: 700px; height: 700px; animation-delay: 1s; }
+.ring:nth-child(4) { width: 900px; height: 900px; animation-delay: 1.5s; }
+.ring:nth-child(5) { width: 1100px; height: 1100px; animation-delay: 2s; }
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.15; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: 0.3; transform: translate(-50%,-50%) scale(1.02); }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 20px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  animation: fade-down 0.8s ease both;
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  background: var(--amber-light);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+.hero-title {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  animation: fade-up 0.9s ease both;
+  animation-delay: 0.2s;
+}
+.hero-title .line1 {
+  font-size: clamp(18px, 3.5vw, 28px);
+  letter-spacing: 6px;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 8px;
+}
+.hero-title .line2 {
+  font-size: clamp(36px, 7vw, 72px);
+  display: block;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+.hero-title .line3 {
+  font-size: clamp(20px, 4vw, 36px);
+  letter-spacing: 4px;
+  opacity: 0.9;
+  display: block;
+  margin-top: 8px;
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(13px, 2vw, 16px);
+  margin-top: 20px;
+  letter-spacing: 3px;
+  animation: fade-up 1s ease both;
+  animation-delay: 0.4s;
+}
+
+.hero-date {
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+  animation: fade-up 1s ease both;
+  animation-delay: 0.6s;
+}
+.date-pill {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 10px 24px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  letter-spacing: 2px;
+  animation: fade-up 1s ease both;
+  animation-delay: 1s;
+}
+.scroll-mouse {
+  width: 24px; height: 36px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 12px;
+  position: relative;
+}
+.scroll-mouse::after {
+  content: '';
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 3px; height: 8px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 2px;
+  animation: scroll-dot 1.5s ease-in-out infinite;
+}
+@keyframes scroll-dot { 0%{opacity:1;top:6px;} 100%{opacity:0;top:18px;} }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== NAV DOTS ===== */
+.nav-dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--teal-light);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  padding: 0;
+}
+.nav-dot.active { opacity: 1; transform: scale(1.4); background: var(--amber); }
+.nav-dot:hover { opacity: 0.8; }
+
+/* ===== SECTION BASICS ===== */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--teal);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.4;
+}
+
+.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* ===== INTRO: WHAT IS THE LAW ===== */
+.intro-section {
+  background: var(--white);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (max-width: 640px) { .intro-grid { grid-template-columns: 1fr; } }
+
+.intro-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--bg-dark);
+  transition: all 0.3s;
+  cursor: default;
+}
+.intro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(14,124,134,0.12);
+  border-color: var(--teal-light);
+}
+.intro-card-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+.intro-card-q {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.intro-card-a {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.75;
+}
+.intro-card-a strong {
+  color: var(--teal-dark);
+}
+
+.principle-box {
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+  border-radius: 16px;
+  padding: 28px 32px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.principle-icon { font-size: 48px; flex-shrink: 0; }
+.principle-text h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+.principle-text p { font-size: 14px; opacity: 0.85; line-height: 1.7; }
+
+/* ===== HEALTH VS SAFETY ===== */
+.comparison-section {
+  background: var(--bg);
+}
+
+.compare-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-top: 40px;
+}
+@media (max-width: 640px) {
+  .compare-wrapper { grid-template-columns: 1fr; }
+  .compare-divider { display: none; }
+}
+
+.compare-card {
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s;
+}
+.compare-card:hover { transform: scale(1.02); }
+.compare-card.safety {
+  background: linear-gradient(145deg, #1A3A5E, #2A5A8E);
+  color: #fff;
+}
+.compare-card.health {
+  background: linear-gradient(145deg, var(--teal-dark), var(--teal));
+  color: #fff;
+}
+.compare-icon { font-size: 48px; margin-bottom: 16px; }
+.compare-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.compare-en { font-size: 12px; opacity: 0.6; letter-spacing: 2px; margin-bottom: 16px; }
+.compare-desc { font-size: 14px; opacity: 0.88; line-height: 1.75; margin-bottom: 16px; }
+.compare-examples { display: flex; flex-wrap: wrap; gap: 8px; }
+.compare-tag {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+}
+.compare-divider {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--ink-light);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.vs-circle {
+  width: 44px; height: 44px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: var(--teal);
+  font-size: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* ===== HAZARDS INTERACTIVE ===== */
+.hazards-section {
+  background: var(--white);
+}
+
+.hazard-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.hazard-tab {
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 2px solid var(--bg-dark);
+  background: var(--bg);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  color: var(--ink-mid);
+}
+.hazard-tab.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(14,124,134,0.3);
+}
+.hazard-tab:hover:not(.active) {
+  border-color: var(--teal-light);
+  color: var(--teal);
+}
+
+.hazard-panels { position: relative; min-height: 280px; }
+.hazard-panel {
+  display: none;
+  animation: panel-in 0.4s ease;
+}
+.hazard-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hazard-item {
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid var(--bg-dark);
+  transition: all 0.25s;
+}
+.hazard-item:hover {
+  border-color: var(--teal-light);
+  background: #EEF8F9;
+  transform: translateY(-3px);
+}
+.hazard-item-icon { font-size: 28px; margin-bottom: 10px; }
+.hazard-item-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.hazard-item-risk { font-size: 13px; color: var(--ink-light); line-height: 1.6; }
+.hazard-item-risk span {
+  display: inline-block;
+  background: rgba(212,64,64,0.1);
+  color: var(--red);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+/* ===== 5 ACTIONS ===== */
+.actions-section {
+  background: var(--bg);
+}
+
+.actions-timeline {
+  position: relative;
+  margin-top: 40px;
+}
+
+.actions-timeline::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--teal), var(--teal-light), transparent);
+}
+@media (max-width: 640px) { .actions-timeline::before { left: 20px; } }
+
+.action-item {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+.action-item.visible { opacity: 1; transform: translateX(0); }
+
+.action-num {
+  width: 66px; height: 66px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 16px rgba(14,124,134,0.3);
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 640px) { .action-num { width: 44px; height: 44px; font-size: 18px; } }
+
+.action-content {
+  flex: 1;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--bg-dark);
+  margin-top: 8px;
+}
+.action-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.action-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.75; }
+.action-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.action-tag {
+  background: rgba(14,124,134,0.08);
+  color: var(--teal-dark);
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ===== HEALTH CHECKUP FLOW ===== */
+.checkup-section {
+  background: var(--white);
+}
+
+.checkup-flow {
+  display: flex;
+  gap: 0;
+  margin-top: 40px;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.checkup-step {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  position: relative;
+  padding: 0 16px;
+}
+.checkup-step::after {
+  content: '→';
+  position: absolute;
+  right: -12px;
+  top: 36px;
+  font-size: 24px;
+  color: var(--teal-light);
+  font-weight: 300;
+}
+.checkup-step:last-child::after { display: none; }
+
+.checkup-circle {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 28px;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+.checkup-step:nth-child(1) .checkup-circle { background: linear-gradient(135deg, #2E7D9E, #42A5C5); }
+.checkup-step:nth-child(2) .checkup-circle { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); }
+.checkup-step:nth-child(3) .checkup-circle { background: linear-gradient(135deg, #5A2E8E, #8A4EC5); }
+.checkup-circle:hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+.checkup-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.checkup-timing {
+  font-size: 12px;
+  color: var(--teal);
+  font-weight: 500;
+  background: rgba(14,124,134,0.08);
+  padding: 3px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.checkup-desc { font-size: 13px; color: var(--ink-light); line-height: 1.65; }
+
+/* ===== RESULT CARDS ===== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+@media (max-width: 640px) { .results-grid { grid-template-columns: 1fr; } }
+
+.result-card {
+  border-radius: 14px;
+  padding: 22px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  transform: translate(30px,-30px);
+  opacity: 0.1;
+}
+.result-card.ok { background: #EDF7F0; border-color: var(--green); }
+.result-card.ok::before { background: var(--green); }
+.result-card.forbidden { background: #FFF3E0; border-color: var(--amber); }
+.result-card.forbidden::before { background: var(--amber); }
+.result-card.suspect { background: #FEF0F0; border-color: var(--red); }
+.result-card.suspect::before { background: var(--red); }
+.result-card.other { background: #EEF2FF; border-color: #6366F1; }
+.result-card.other::before { background: #6366F1; }
+.result-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+
+.result-status {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.result-card.ok .result-status { color: var(--green); }
+.result-card.forbidden .result-status { color: #C07010; }
+.result-card.suspect .result-status { color: var(--red); }
+.result-card.other .result-status { color: #5558D0; }
+.result-desc { font-size: 14px; color: var(--ink); line-height: 1.7; }
+.result-action {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.result-card.ok .result-action { color: var(--green); }
+.result-card.forbidden .result-action { color: #C07010; }
+.result-card.suspect .result-action { color: var(--red); }
+.result-card.other .result-action { color: #5558D0; }
+
+/* ===== MYTHS QUIZ ===== */
+.myths-section {
+  background: var(--bg);
+}
+
+.myth-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.myth-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--bg-dark);
+}
+
+.myth-question {
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.myth-question:hover { background: #F8FBFB; }
+.myth-q-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--amber), var(--amber-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.myth-q-text { flex: 1; }
+.myth-q-label { font-size: 11px; color: var(--amber); font-weight: 700; letter-spacing: 2px; margin-bottom: 6px; }
+.myth-q-main { font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+.myth-toggle {
+  margin-left: auto;
+  font-size: 20px;
+  color: var(--teal-light);
+  transition: transform 0.3s;
+  align-self: center;
+  flex-shrink: 0;
+}
+.myth-card.open .myth-toggle { transform: rotate(180deg); }
+
+.myth-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border-top: 1px solid var(--bg-dark);
+}
+.myth-card.open .myth-answer { max-height: 400px; }
+
+.myth-answer-inner {
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.myth-verdict {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.myth-verdict.false { background: rgba(212,64,64,0.1); color: var(--red); }
+.myth-verdict.partial { background: rgba(232,160,32,0.1); color: #B07010; }
+.myth-a-text { font-size: 14px; color: var(--ink-mid); line-height: 1.75; }
+.myth-a-text strong { color: var(--teal-dark); }
+
+/* ===== RIGHTS ===== */
+.rights-section {
+  background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 100%);
+  color: #fff;
+}
+.rights-section .section-label { color: rgba(255,255,255,0.6); }
+.rights-section .section-label::after { background: rgba(255,255,255,0.3); }
+.rights-section .section-title { color: #fff; }
+.rights-section .section-desc { color: rgba(255,255,255,0.75); }
+
+.rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.right-item {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s;
+  text-align: center;
+}
+.right-item:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-4px);
+}
+.right-icon { font-size: 36px; margin-bottom: 12px; }
+.right-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.right-desc { font-size: 13px; opacity: 0.78; line-height: 1.65; }
+
+/* ===== EXCEPTION RULES ===== */
+.exceptions-section {
+  background: var(--white);
+}
+.exception-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+@media (max-width: 640px) { .exception-boxes { grid-template-columns: 1fr; } }
+
+.exception-box {
+  border-radius: 16px;
+  padding: 24px;
+  border: 2px solid var(--bg-dark);
+  transition: all 0.3s;
+}
+.exception-box:hover { border-color: var(--teal-light); transform: translateY(-3px); }
+.exception-box-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.exception-box-num {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--teal);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.exception-box-title { font-size: 16px; font-weight: 700; color: var(--ink); }
+.exception-box-rule {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--teal);
+  font-family: 'Noto Serif SC', serif;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.exception-box-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+
+.warning-box {
+  margin-top: 24px;
+  background: rgba(212,64,64,0.06);
+  border: 1px solid rgba(212,64,64,0.25);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.warning-icon { font-size: 20px; flex-shrink: 0; }
+.warning-text { font-size: 14px; color: var(--red); line-height: 1.7; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 48px 24px;
+  position: relative;
+  z-index: 1;
+}
+.footer-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.footer-sub { font-size: 13px; margin-bottom: 24px; }
+.footer-divider { width: 40px; height: 2px; background: var(--teal); margin: 0 auto 24px; }
+.footer-notice { font-size: 12px; max-width: 500px; margin: 0 auto; line-height: 1.8; }
+
+/* ===== TOOLTIP ===== */
+.tooltip-wrap { position: relative; display: inline-block; }
+.tooltip-trigger {
+  color: var(--teal);
+  border-bottom: 1px dashed var(--teal);
+  cursor: help;
+}
+.tooltip-box {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 200;
+}
+.tooltip-box::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+.tooltip-wrap:hover .tooltip-box { display: block; }
+
+/* ===== FLOATING AWARENESS BANNER ===== */
+.awareness-ribbon {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(8,89,96,0.92);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(27,168,181,0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  animation: fade-down 1s ease both;
+  animation-delay: 1.2s;
+}
+.ribbon-dot {
+  width: 8px; height: 8px;
+  background: var(--amber-light);
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+/* ===== PROGRESS BAR ===== */
+.read-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--teal-light), var(--amber));
+  z-index: 1000;
+  transition: width 0.1s;
+}
+
+/* ===== REVEAL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== UTILITY ===== */
+.text-teal { color: var(--teal); }
+.text-amber { color: var(--amber); }
+.text-red { color: var(--red); }
+.fw-700 { font-weight: 700; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<!-- READ PROGRESS -->
+<div class="read-progress" id="readProgress"></div>
+
+<!-- FLOATING RIBBON -->
+<div class="awareness-ribbon">
+  <div class="ribbon-dot"></div>
+  <span>第24个全国职业病防治法宣传周 · 2026年4月25日—5月1日</span>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-section="hero" title="封面"></button>
+  <button class="nav-dot" data-section="intro" title="了解法律"></button>
+  <button class="nav-dot" data-section="comparison" title="安全vs健康"></button>
+  <button class="nav-dot" data-section="hazards" title="职业危害"></button>
+  <button class="nav-dot" data-section="actions" title="五项行动"></button>
+  <button class="nav-dot" data-section="checkup" title="健康检查"></button>
+  <button class="nav-dot" data-section="myths" title="误区辨析"></button>
+  <button class="nav-dot" data-section="rights" title="你的权利"></button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-rings">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="ring"></div><div class="ring"></div>
+  </div>
+  <div class="badge"><div class="badge-dot"></div>小鹏汽车 EHS 职业健康</div>
+  <h1 class="hero-title">
+    <span class="line1">第24届全国</span>
+    <span class="line2">职业病防治法</span>
+    <span class="line3">宣传周</span>
+  </h1>
+  <p class="hero-sub">你的健康，比任何工作都重要</p>
+  <div class="hero-date">
+    <div class="date-pill">📅 2026年4月25日—5月1日</div>
+    <div class="date-pill">🏭 全员宣贯</div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-mouse"></div>
+    <span>向下了解</span>
+  </div>
+</section>
+
+<!-- ===== SECTION 1: WHAT IS THE LAW ===== -->
+<section class="section intro-section" id="intro">
+  <div class="section-inner">
+    <div class="section-label reveal">01 · 了解法律</div>
+    <h2 class="section-title reveal">《职业病防治法》是干什么的？</h2>
+    <p class="section-desc reveal">这部法律专门保护在岗职工的身体健康，确保每一位工作中的人都能得到应有的保护。</p>
+    <div class="intro-grid reveal">
+      <div class="intro-card">
+        <div class="intro-card-icon">🛡️</div>
+        <div class="intro-card-q">保护谁？</div>
+        <div class="intro-card-a"><strong>所有在企业里干活的人。</strong><br>不分岗位、不分工龄，每一位员工都受到保护。</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-icon">🏢</div>
+        <div class="intro-card-q">谁负责？</div>
+        <div class="intro-card-a"><strong>用人单位（公司）是第一责任人。</strong><br>主要负责人对本单位职业病防治工作全面负责。</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-icon">🔬</div>
+        <div class="intro-card-q">防治什么？</div>
+        <div class="intro-card-a">工作中可能接触的<strong>粉尘、化学品、噪声、高温</strong>等职业病危害，从源头采取工程控制和管理措施。</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-icon">⚙️</div>
+        <div class="intro-card-q">机制是什么？</div>
+        <div class="intro-card-a"><strong>用人单位负责、行政机关监管、行业自律、职工参与和社会监督</strong>五位一体的防治机制。</div>
+      </div>
+    </div>
+    <div class="principle-box reveal">
+      <div class="principle-icon">⚕️</div>
+      <div class="principle-text">
+        <h3>"预防为主、防治结合"</h3>
+        <p>与其等生病了再治，不如一开始就防住。法律的核心逻辑是：将职业病危害消灭在萌芽状态，把工作者的健康权益放在首位。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: COMPARISON ===== -->
+<section class="section comparison-section" id="comparison">
+  <div class="section-inner">
+    <div class="section-label reveal">02 · 两者的关系</div>
+    <h2 class="section-title reveal">职业健康 vs 安全生产</h2>
+    <p class="section-desc reveal">两者共同构成 ISO 45001 职业健康安全管理体系的核心，侧重点不同，但缺一不可、同等重要。</p>
+    <div class="compare-wrapper reveal">
+      <div class="compare-card safety">
+        <div class="compare-icon">⚡</div>
+        <div class="compare-title">安全生产</div>
+        <div class="compare-en">SAFETY</div>
+        <div class="compare-desc">主要防范<strong>突发性伤害</strong>，目标是防止"事故"发生。关注的是立即的、急性的风险。</div>
+        <div class="compare-examples">
+          <span class="compare-tag">高处坠落</span>
+          <span class="compare-tag">触电事故</span>
+          <span class="compare-tag">机器夹伤</span>
+          <span class="compare-tag">火灾爆炸</span>
+          <span class="compare-tag">急性中毒</span>
+        </div>
+      </div>
+      <div class="compare-divider">
+        <div class="vs-circle">和</div>
+      </div>
+      <div class="compare-card health">
+        <div class="compare-icon">🫁</div>
+        <div class="compare-title">职业健康</div>
+        <div class="compare-en">HEALTH</div>
+        <div class="compare-desc">主要关注<strong>长期慢性健康损害</strong>，目标是防止"职业病"和工作相关疾病。</div>
+        <div class="compare-examples">
+          <span class="compare-tag">尘肺病</span>
+          <span class="compare-tag">职业性耳聋</span>
+          <span class="compare-tag">职业中毒</span>
+          <span class="compare-tag">接触性皮炎</span>
+          <span class="compare-tag">工伤关节病</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: HAZARDS ===== -->
+<section class="section hazards-section" id="hazards">
+  <div class="section-inner">
+    <div class="section-label reveal">03 · 认识危害</div>
+    <h2 class="section-title reveal">工作场所有哪些职业危害？</h2>
+    <p class="section-desc reveal">点击分类查看不同类型的职业危害因素及其对健康的影响。</p>
+    <div class="hazard-tabs reveal">
+      <button class="hazard-tab active" data-tab="chemical">⚗️ 化学性危害</button>
+      <button class="hazard-tab" data-tab="physical">🔊 物理性危害</button>
+      <button class="hazard-tab" data-tab="ergo">🦾 人机工程危害</button>
+    </div>
+    <div class="hazard-panels">
+      <div class="hazard-panel active" id="tab-chemical">
+        <div class="hazard-item">
+          <div class="hazard-item-icon">💨</div>
+          <div class="hazard-item-name">粉尘（矽尘/煤尘）</div>
+          <div class="hazard-item-risk">长期吸入可沉积于肺泡，造成纤维化损伤。<span>可致尘肺病</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🧪</div>
+          <div class="hazard-item-name">有毒气体（苯/CO）</div>
+          <div class="hazard-item-risk">苯可抑制骨髓造血，CO与血红蛋白结合阻碍供氧。<span>可致癌/急性中毒</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">⚙️</div>
+          <div class="hazard-item-name">重金属（铅/汞）</div>
+          <div class="hazard-item-risk">蓄积于体内不易排出，损害神经、肾脏、造血系统。<span>具有致畸性</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🌫️</div>
+          <div class="hazard-item-name">化学烟雾/溶剂</div>
+          <div class="hazard-item-risk">有些有机溶剂可穿透皮肤屏障，仅戴口罩不能完全防护。<span>可经皮吸收</span></div>
+        </div>
+      </div>
+      <div class="hazard-panel" id="tab-physical">
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🔊</div>
+          <div class="hazard-item-name">噪声</div>
+          <div class="hazard-item-risk">长期暴露超过85dB的噪声环境，导致毛细胞损伤。<span>可致职业性耳聋</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🌡️</div>
+          <div class="hazard-item-name">高温/低温</div>
+          <div class="hazard-item-risk">高温环境下热应激可造成中暑；极端低温导致冻伤。<span>中暑/冻伤</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">☢️</div>
+          <div class="hazard-item-name">辐射（X射线/UV）</div>
+          <div class="hazard-item-risk">电离辐射损伤细胞DNA；紫外线长期照射损害眼睛和皮肤。<span>可致眼炎/癌变</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">📳</div>
+          <div class="hazard-item-name">手传振动</div>
+          <div class="hazard-item-risk">长期使用振动工具，导致末梢血管损害和感觉障碍。<span>手臂振动病</span></div>
+        </div>
+      </div>
+      <div class="hazard-panel" id="tab-ergo">
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🔄</div>
+          <div class="hazard-item-name">重复性作业</div>
+          <div class="hazard-item-risk">制造业长时间腕部重复动作，造成肌腱炎、腕管综合征等累积性损伤。<span>肌肉骨骼损伤</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">💪</div>
+          <div class="hazard-item-name">用力作业</div>
+          <div class="hazard-item-risk">长时间施力搬运、操作，造成腰椎及关节慢性损伤。<span>腰椎损伤</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">🧍</div>
+          <div class="hazard-item-name">不良体位</div>
+          <div class="hazard-item-risk">长时间保持不良姿势（如弯腰、扭转），加速骨骼肌肉退行性变化。<span>慢性关节病</span></div>
+        </div>
+        <div class="hazard-item">
+          <div class="hazard-item-icon">👁️</div>
+          <div class="hazard-item-name">视觉疲劳</div>
+          <div class="hazard-item-risk">长期注视细小工件或屏幕，造成视觉疲劳、干眼症等。<span>视力损害</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: ACTIONS ===== -->
+<section class="section actions-section" id="actions">
+  <div class="section-inner">
+    <div class="section-label reveal">04 · 落实行动</div>
+    <h2 class="section-title reveal">职业健康具体做什么？</h2>
+    <p class="section-desc reveal">不是挂在墙上的制度，而是一套实实在在的行动体系。</p>
+    <div class="actions-timeline">
+      <div class="action-item">
+        <div class="action-num">📡</div>
+        <div class="action-content">
+          <div class="action-title">工作场所监测</div>
+          <div class="action-desc">定期测量工厂车间、试验室的粉尘、噪声、有毒物质浓度、放射性物质、温度等是否超标。用数据说话，是一切防治工作的基础。</div>
+          <div class="action-tags"><span class="action-tag">定期检测</span><span class="action-tag">浓度达标</span><span class="action-tag">档案记录</span></div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">🏥</div>
+        <div class="action-content">
+          <div class="action-title">职业健康检查（员工的权利）</div>
+          <div class="action-desc">包括<strong>上岗前检查</strong>（看是否有禁忌证）、<strong>在岗期间定期检查</strong>（早期发现损害）、<strong>离岗时检查</strong>（划清责任，留存证据）。这是你的权利且不得放弃。</div>
+          <div class="action-tags"><span class="action-tag">上岗前</span><span class="action-tag">在岗定期</span><span class="action-tag">离岗时</span></div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">⚕️</div>
+        <div class="action-content">
+          <div class="action-title">职业病诊断与工伤认定</div>
+          <div class="action-desc">对符合国家《职业病分类和目录》的疾病（如尘肺病、职业中毒、噪声聋等）进行诊断、治疗，并依法进行工伤认定和赔偿。</div>
+          <div class="action-tags"><span class="action-tag">法定目录</span><span class="action-tag">专业机构诊断</span><span class="action-tag">工伤认定</span></div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">🎓</div>
+        <div class="action-content">
+          <div class="action-title">健康教育与培训</div>
+          <div class="action-desc">教大家正确使用防护用品（口罩、耳塞、手套、防护服、安全带等），掌握如何识别岗位危害、如何安全操作，以及发生异常时的应急处置。</div>
+          <div class="action-tags"><span class="action-tag">PPE选用</span><span class="action-tag">危害识别</span><span class="action-tag">应急处置</span></div>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">🔧</div>
+        <div class="action-content">
+          <div class="action-title">改善工作环境（源头控制）</div>
+          <div class="action-desc">通过工程改造（如加装通风除尘设备、隔音罩）和管理措施（如轮岗减少接触时间），从源头上降低风险。这是最有效的防治手段，防护用品只是"最后一道防线"。</div>
+          <div class="action-tags"><span class="action-tag">通风除尘</span><span class="action-tag">隔音降噪</span><span class="action-tag">轮岗管理</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: CHECKUP ===== -->
+<section class="section checkup-section" id="checkup">
+  <div class="section-inner">
+    <div class="section-label reveal">05 · 三项检查</div>
+    <h2 class="section-title reveal">职业健康检查：知道自己的健康状况</h2>
+    <p class="section-desc reveal">就像给汽车定期做保养，职业健康检查是监测长期健康影响的关键手段。</p>
+    <div class="checkup-flow reveal">
+      <div class="checkup-step">
+        <div class="checkup-circle">🆕</div>
+        <div class="checkup-label">上岗前检查</div>
+        <div class="checkup-timing">入职 / 换岗前</div>
+        <div class="checkup-desc">核心目的是排查<strong>职业禁忌证</strong>——你的身体状况是否比普通人更容易受到某种危害的伤害。如有活动性肺结核，则不适合粉尘作业。</div>
+      </div>
+      <div class="checkup-step">
+        <div class="checkup-circle">🔄</div>
+        <div class="checkup-label">在岗定期检查</div>
+        <div class="checkup-timing">工作期间定期</div>
+        <div class="checkup-desc">监测长期健康影响，早期发现损害，及时干预。是保护劳动者最重要的一道主动防线。</div>
+      </div>
+      <div class="checkup-step">
+        <div class="checkup-circle">🚪</div>
+        <div class="checkup-label">离岗时检查</div>
+        <div class="checkup-timing">离职 / 换岗前</div>
+        <div class="checkup-desc">划清责任，给自己留一份健康底单。若离职后才发现职业病，此档案是维权的重要证据。<strong>原则上不可跳过。</strong></div>
+      </div>
+    </div>
+
+    <div class="mt-16 reveal">
+      <div class="section-label">检查结论怎么看？</div>
+      <h3 class="fw-700 mt-8" style="font-size:18px;color:var(--ink);margin-bottom:20px;">在岗期间检查结论共分四种</h3>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-card ok">
+        <div class="result-status">✅ 目前未见异常</div>
+        <div class="result-desc">健康状态良好，可继续从事当前岗位工作。</div>
+        <div class="result-action">→ 继续保持，下次按计划复查</div>
+      </div>
+      <div class="result-card forbidden">
+        <div class="result-status">⚠️ 职业禁忌证</div>
+        <div class="result-desc">身体状况已不适合当前岗位危害接触。</div>
+        <div class="result-action">→ 依法，公司必须将你调离该岗位</div>
+      </div>
+      <div class="result-card suspect">
+        <div class="result-status">🔴 疑似职业病</div>
+        <div class="result-desc">医生怀疑疾病与工作危害有关，需进一步确认。</div>
+        <div class="result-action">→ 须去有资质机构正式诊断，费用公司承担</div>
+      </div>
+      <div class="result-card other">
+        <div class="result-status">🔵 其他疾病或异常</div>
+        <div class="result-desc">与工作无直接关联的健康问题（如普通高血压）。</div>
+        <div class="result-action">→ 建议去综合医院复查或治疗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: MYTHS ===== -->
+<section class="section myths-section" id="myths">
+  <div class="section-inner">
+    <div class="section-label reveal">06 · 误区辨析</div>
+    <h2 class="section-title reveal">这些说法，你信过吗？</h2>
+    <p class="section-desc reveal">点击展开，看看这些流传已久的"经验"，哪些是错的。</p>
+    <div class="myth-cards reveal">
+      <!-- MYTH 1 -->
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"少量接触有害物质没关系，剂量决定毒性嘛。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict partial">⚠️ 不完全正确</div>
+            <div class="myth-a-text">大多数物质确实存在安全剂量，低于国家标准限值风险较低。<br>但<strong>有些物质没有安全剂量</strong>，哪怕微量接触也有不可接受的风险：苯（可致白血病）、铅化合物（致畸）、异氰酸酯（致敏）等。对于这些物质，必须<strong>100%全程防护，不能有任何侥幸心理</strong>。</div>
+          </div>
+        </div>
+      </div>
+      <!-- MYTH 2 -->
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"戴了口罩和手套，就可以高枕无忧了。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 错误</div>
+            <div class="myth-a-text">防护用品是<strong>"最后一道防线"</strong>，而不是唯一一道。<br>更根本的是改进工艺、安装通风降噪设备。防护用品本身也会失效：选错型号、佩戴不正确、不全程使用，效果都会大打折扣。<br>此外，某些有机溶剂<strong>可通过皮肤吸收</strong>，只戴口罩不穿防化服，仍然可能中毒。防护用品必须用，但不能只靠它。</div>
+          </div>
+        </div>
+      </div>
+      <!-- MYTH 3 -->
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"我急着离职，离职体检可以不做吧？"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 原则上不行</div>
+            <div class="myth-a-text">《职业病防治法》规定：接触职业病危害的劳动者，必须完成离岗职业健康检查后才能解除劳动合同。<br>只有两种例外：<strong>①</strong>离岗前90天内已做过在岗检查且结果正常、危害无变化；<strong>②</strong>接触危害岗位不足30天且实际危害浓度低于国家标准。<br>⚠️ 接触苯的氨基与硝基化合物、光气等特殊危害的人员，<strong>无论任何情况都必须做离岗体检</strong>。</div>
+          </div>
+        </div>
+      </div>
+      <!-- MYTH 4 -->
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"我自己花钱去医院体检了，项目一样，可以替代职业健康检查。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 不能替代</div>
+            <div class="myth-a-text">原因不在于检查项目，而在于<strong>法律效力不同</strong>。《职业病防治法》规定的职业健康检查必须由省级卫生健康部门<strong>备案的专门机构</strong>进行，出具的结论才具有法律后果（如调岗、疑似职业病认定等）。<br><strong>不要自己花冤枉钱</strong>——该做的职业健康检查，公司有义务安排，费用也由公司承担。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: RIGHTS ===== -->
+<section class="section rights-section" id="rights">
+  <div class="section-inner">
+    <div class="section-label reveal">07 · 你的权利</div>
+    <h2 class="section-title reveal">法律赋予你的权利</h2>
+    <p class="section-desc reveal">这些是《职业病防治法》明确赋予每一位劳动者的权利，了解它，用好它。</p>
+    <div class="rights-grid reveal">
+      <div class="right-item">
+        <div class="right-icon">📋</div>
+        <div class="right-title">知情权</div>
+        <div class="right-desc">有权了解工作场所存在的职业危害及其对健康的影响，以及公司采取的防护措施。</div>
+      </div>
+      <div class="right-item">
+        <div class="right-icon">🏥</div>
+        <div class="right-title">职业健康检查权</div>
+        <div class="right-desc">有权获得公司安排、费用公司承担的上岗前、在岗期间、离岗时职业健康检查。</div>
+      </div>
+      <div class="right-item">
+        <div class="right-icon">🛡️</div>
+        <div class="right-title">劳动保护权</div>
+        <div class="right-desc">有权获得符合标准的个人防护用品，并要求公司提供安全合格的工作环境。</div>
+      </div>
+      <div class="right-item">
+        <div class="right-icon">📁</div>
+        <div class="right-title">档案查阅权</div>
+        <div class="right-desc">有权查阅、复印本人的职业健康监护档案。离职时公司须如实出具档案复印件。</div>
+      </div>
+      <div class="right-item">
+        <div class="right-icon">🔄</div>
+        <div class="right-title">调岗权</div>
+        <div class="right-desc">检查发现职业禁忌证时，公司必须依法将你调离危害岗位，且不得因此降薪。</div>
+      </div>
+      <div class="right-item">
+        <div class="right-icon">⚖️</div>
+        <div class="right-title">工伤赔偿权</div>
+        <div class="right-desc">确诊为职业病后，依法享有工伤认定和工伤待遇，相关诊断费用由公司承担。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXCEPTIONS ===== -->
+<section class="section exceptions-section" id="exceptions">
+  <div class="section-inner">
+    <div class="section-label reveal">08 · 规则细节</div>
+    <h2 class="section-title reveal">离岗体检的两种豁免情况</h2>
+    <p class="section-desc reveal">原则上必须做，但以下两种特殊情形，在岗检查可视为离岗检查。</p>
+    <div class="exception-boxes reveal">
+      <div class="exception-box">
+        <div class="exception-box-header">
+          <div class="exception-box-num">1</div>
+          <div class="exception-box-title">90天规则</div>
+        </div>
+        <div class="exception-box-rule">离岗前90天内</div>
+        <div class="exception-box-desc">已做过在岗职业健康检查，且检查<strong>结果正常</strong>、<strong>现场危害没有变化</strong>。此次在岗检查可视为离岗检查，无需重做。</div>
+      </div>
+      <div class="exception-box">
+        <div class="exception-box-header">
+          <div class="exception-box-num">2</div>
+          <div class="exception-box-title">30天规则</div>
+        </div>
+        <div class="exception-box-rule">接触不足30天</div>
+        <div class="exception-box-desc">从事该危害岗位不足30天，<strong>且</strong>该岗位实际危害浓度/强度<strong>低于国家标准限值</strong>，可以免做离岗检查。</div>
+      </div>
+    </div>
+    <div class="warning-box reveal">
+      <div class="warning-icon">⚠️</div>
+      <div class="warning-text"><strong>特殊危害人员无豁免：</strong>接触苯的氨基与硝基化合物、光气等特殊危害的人员，无论工作时间长短、危害是否超标，都必须做离岗体检，无任何豁免情形。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo">小鹏汽车 · EHS 职业健康安全</div>
+  <div class="footer-sub">Environmental Health & Safety</div>
+  <div class="footer-divider"></div>
+  <div class="footer-notice">第24届全国《职业病防治法》宣传周 · 2026年4月25日—5月1日<br>保护职业健康是法律责任，更是对每一位员工的承诺。<br>如有疑问请联系公司EHS部门。</div>
+</footer>
+
+<script>
+// ===== PARTICLES =====
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let W, H;
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const COLORS = ['#0E7C86','#1BA8B5','#E8A020','#2E9E60'];
+  for(let i=0;i<55;i++){
+    particles.push({
+      x: Math.random()*1920,
+      y: Math.random()*1080,
+      r: Math.random()*2.5+0.5,
+      vx: (Math.random()-0.5)*0.4,
+      vy: (Math.random()-0.5)*0.4,
+      c: COLORS[Math.floor(Math.random()*COLORS.length)],
+      a: Math.random()*0.4+0.1
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c;
+      ctx.globalAlpha=p.a;
+      ctx.fill();
+      ctx.globalAlpha=1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ===== READ PROGRESS =====
+window.addEventListener('scroll', function(){
+  const doc = document.documentElement;
+  const prog = (window.scrollY / (doc.scrollHeight - doc.clientHeight)) * 100;
+  document.getElementById('readProgress').style.width = prog + '%';
+});
+
+// ===== REVEAL ON SCROLL =====
+const reveals = document.querySelectorAll('.reveal');
+const actionItems = document.querySelectorAll('.action-item');
+
+function checkReveal(){
+  const trigger = window.innerHeight * 0.85;
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < trigger){
+      el.classList.add('visible');
+    }
+  });
+  actionItems.forEach((el,i)=>{
+    if(el.getBoundingClientRect().top < trigger){
+      setTimeout(()=>el.classList.add('visible'), i*100);
+    }
+  });
+}
+window.addEventListener('scroll', checkReveal);
+checkReveal();
+
+// ===== NAV DOTS =====
+const sections = ['hero','intro','comparison','hazards','actions','checkup','myths','rights'];
+const dots = document.querySelectorAll('.nav-dot');
+
+dots.forEach((dot,i)=>{
+  dot.addEventListener('click',()=>{
+    document.getElementById(sections[i]).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+window.addEventListener('scroll',()=>{
+  let current = 0;
+  sections.forEach((id,i)=>{
+    const el = document.getElementById(id);
+    if(el && el.getBoundingClientRect().top < window.innerHeight/2) current=i;
+  });
+  dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+});
+
+// ===== HAZARD TABS =====
+document.querySelectorAll('.hazard-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.hazard-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.hazard-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ===== MYTHS TOGGLE =====
+function toggleMyth(card){
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.myth-card').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen) card.classList.add('open');
+}
+</script>
+</body>
+</html>
