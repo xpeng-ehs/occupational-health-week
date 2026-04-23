@@ -776,9 +776,12 @@ body {
 
 .rights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 40px;
+}
+@media (max-width: 600px) {
+  .rights-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 .right-item {
@@ -1031,73 +1034,79 @@ body {
 
 /* ===== SIDE NAV WITH LABELS ===== */
 .nav-dots {
-  right: 0 !important;
-  background: rgba(8,89,96,0.88);
-  backdrop-filter: blur(12px);
-  border-radius: 14px 0 0 14px;
-  padding: 10px 6px;
-  gap: 2px !important;
-  border: 1px solid rgba(27,168,181,0.3);
-  border-right: none;
-  min-width: 28px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  padding: 8px 0;
+  gap: 6px !important;
+  align-items: flex-end;
 }
 
 .nav-dot {
-  width: 28px !important;
+  width: auto !important;
   height: auto !important;
-  border-radius: 8px !important;
   background: transparent !important;
+  border-radius: 0 !important;
   opacity: 1 !important;
+  transform: none !important;
   display: flex !important;
   align-items: center;
+  justify-content: flex-end;
   gap: 0;
-  padding: 6px 6px !important;
-  white-space: nowrap;
-  overflow: hidden;
-  transition: width 0.25s ease, background 0.25s ease !important;
-  transform: none !important;
+  padding: 2px 0 !important;
+  transition: none !important;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
-.nav-dot:hover {
-  width: auto !important;
-  background: rgba(255,255,255,0.12) !important;
-  gap: 8px;
-  padding: 6px 10px !important;
-}
+
 .nav-dot .dot-pip {
-  width: 8px; height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.4);
+  background: rgba(14, 124, 134, 0.35);
   flex-shrink: 0;
-  transition: background 0.25s, box-shadow 0.25s;
+  transition: width 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              height 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              background 0.3s ease;
+  order: 2;
 }
+
 .nav-dot.active .dot-pip {
-  background: var(--amber-light);
-  box-shadow: 0 0 6px var(--amber-light);
+  background: var(--teal);
+  width: 10px;
+  height: 10px;
 }
+
+.nav-dot.near .dot-pip {
+  background: rgba(14,124,134,0.55);
+  width: 8px;
+  height: 8px;
+}
+
 .nav-dot .dot-label {
   font-size: 11px;
-  color: rgba(255,255,255,0.85);
+  color: var(--teal-dark);
   letter-spacing: 0.5px;
   font-family: 'Noto Sans SC', sans-serif;
   max-width: 0;
   overflow: hidden;
-  transition: max-width 0.25s ease, opacity 0.2s ease;
   opacity: 0;
   white-space: nowrap;
+  order: 1;
+  margin-right: 0;
+  transition: max-width 0.35s ease, opacity 0.3s ease, margin-right 0.3s ease;
 }
-.nav-dot:hover .dot-label {
-  max-width: 120px;
+
+/* expanded state triggered by JS class on the nav container */
+.nav-dots.expanded .nav-dot .dot-label {
+  max-width: 100px;
   opacity: 1;
+  margin-right: 8px;
 }
-.nav-dot.active {
-  width: auto !important;
-  background: rgba(255,255,255,0.15) !important;
-  gap: 8px;
-  padding: 6px 10px !important;
-}
-.nav-dot.active .dot-label {
-  max-width: 120px;
-  opacity: 1;
+
+.nav-dots.expanded .nav-dot.active .dot-pip {
+  background: var(--teal);
 }
 
 @media (max-width: 768px) {
@@ -1178,7 +1187,7 @@ body {
   <button class="nav-dot" data-section="myths"><span class="dot-pip"></span><span class="dot-label">误区辨析</span></button>
   <button class="nav-dot" data-section="rights"><span class="dot-pip"></span><span class="dot-label">你的权利</span></button>
   <button class="nav-dot" data-section="closing"><span class="dot-pip"></span><span class="dot-label">总结寄语</span></button>
-  <button class="nav-dot" data-section="exceptions"><span class="dot-pip"></span><span class="dot-label">体检豁免</span></button>
+  <button class="nav-dot" data-section="exceptions"><span class="dot-pip"></span><span class="dot-label">离岗体检豁免</span></button>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -1187,7 +1196,7 @@ body {
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
     <div class="ring"></div><div class="ring"></div>
   </div>
-  <div class="awareness-ribbon"><div class="ribbon-dot"></div><span>第24个全国职业病防治法宣传周 · 2026年4月25日—5月1日</span></div>
+  
   <div class="badge"><div class="badge-dot"></div>小鹏汽车安全管理办公室 发布</div>
   <h1 class="hero-title">
     <span class="line1">第24届全国</span>
@@ -1637,28 +1646,28 @@ body {
         <div class="closing-card-num">①</div>
         <div class="closing-card-text">
           <strong>法律是底线，健康是目标。</strong>
-          《职业病防治法》不只是一部写在纸上的规章，它是国家对每一位在岗同学的承诺。
+          《职业病防治法》不只是一部写在纸上的规章，它是国家对每一位在岗同学的承诺。法律的存在，是为了让我们每个人在退休那天，依然拥有健康的身体去享受生活。
         </div>
       </div>
       <div class="closing-card">
         <div class="closing-card-num">②</div>
         <div class="closing-card-text">
           <strong>预防，永远比治疗有价值。</strong>
-          尘肺病、职业性噪声聋——许多职业病一旦发生，便无法逆转。工程控制、现场监测、合理防护、定期检查，这些看似"麻烦"的举措，是我们对自己未来最好的投资。
+          尘肺病、职业性噪声聋——许多职业病一旦发生，便无法逆转。工程控制、合理防护、定期检查，这些看似"麻烦"的举措，是我们对自己未来最好的投资。
         </div>
       </div>
       <div class="closing-card">
         <div class="closing-card-num">③</div>
         <div class="closing-card-text">
           <strong>权利要懂得，也要敢于使用。</strong>
-          知情权、检查权、调岗权——这些不是"申请来的福利"，而是法律赋予你的权利。
+          知情权、检查权、调岗权——这些不是"申请来的福利"，而是法律赋予你的权利。了解它们，在需要时理性、合法地维护自己的健康权益。
         </div>
       </div>
       <div class="closing-card">
         <div class="closing-card-num">④</div>
         <div class="closing-card-text">
           <strong>健康小鹏，从每一位同学开始。</strong>
-          安全文化需要我们共同塑造：每一次正确佩戴防护用品，每一次按时完成职业健康检查，都是在为自己、为同伴、为这个团队添砖加瓦。
+          汽车是我们造的，安全文化也是我们共同塑造的。每一次正确佩戴防护用品，每一次按时完成职业健康检查，都是在为自己、为同伴、为这个团队添砖加瓦。
         </div>
       </div>
     </div>
@@ -1750,21 +1759,70 @@ checkReveal();
 // ===== NAV DOTS =====
 const sections = ['hero','intro','comparison','hazards','actions','checkup','myths','rights','closing','exceptions'];
 const dots = document.querySelectorAll('.nav-dot');
+const navContainer = document.getElementById('navDots');
 
-dots.forEach((dot,i)=>{
-  dot.addEventListener('click',()=>{
-    document.getElementById(sections[i]).scrollIntoView({behavior:'smooth'});
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    document.getElementById(sections[i]).scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-window.addEventListener('scroll',()=>{
+// Update active dot + size cascade (parabola-like falloff)
+function updateActiveDot() {
   let current = 0;
-  sections.forEach((id,i)=>{
+  sections.forEach((id, i) => {
     const el = document.getElementById(id);
-    if(el && el.getBoundingClientRect().top < window.innerHeight/2) current=i;
+    if (el && el.getBoundingClientRect().top < window.innerHeight / 2) current = i;
   });
-  dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+  dots.forEach((d, i) => {
+    const dist = Math.abs(i - current);
+    d.classList.toggle('active', i === current);
+    d.classList.toggle('near', dist === 1);
+    // Parabolic size: active=10px, dist1=8px, dist2+=7px via inline style
+    const pip = d.querySelector('.dot-pip');
+    if (pip) {
+      if (i === current) {
+        pip.style.width = '10px';
+        pip.style.height = '10px';
+        pip.style.opacity = '1';
+      } else {
+        // parabola: size shrinks as distance grows
+        const size = Math.max(5, 10 - dist * dist * 0.8);
+        const op = Math.max(0.2, 1 - dist * 0.22);
+        pip.style.width = size + 'px';
+        pip.style.height = size + 'px';
+        pip.style.opacity = op;
+      }
+    }
+  });
+}
 
+window.addEventListener('scroll', updateActiveDot);
+updateActiveDot();
+
+// Expand nav on hover near right edge OR fast scroll
+let scrollTimeout;
+let lastScrollY = window.scrollY;
+let expandTimeout;
+
+function expandNav() {
+  navContainer.classList.add('expanded');
+  clearTimeout(expandTimeout);
+  expandTimeout = setTimeout(() => navContainer.classList.remove('expanded'), 1800);
+}
+
+// Fast scroll detection
+window.addEventListener('scroll', () => {
+  const delta = Math.abs(window.scrollY - lastScrollY);
+  lastScrollY = window.scrollY;
+  if (delta > 40) expandNav();
+}, { passive: true });
+
+// Right edge hover (within 60px of viewport right)
+document.addEventListener('mousemove', (e) => {
+  if (e.clientX > window.innerWidth - 60) {
+    expandNav();
+  }
 });
 
 // ===== HAZARD TABS =====
