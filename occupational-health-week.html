@@ -1170,13 +1170,10 @@ body {
 </head>
 <body>
 
-<!-- READ PROGRESS -->
 <div class="read-progress" id="readProgress"></div>
 
-<!-- PARTICLES -->
 <canvas id="particles-canvas"></canvas>
 
-<!-- NAV DOTS -->
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot active" data-section="hero"><span class="dot-pip"></span><span class="dot-label">封面</span></button>
   <button class="nav-dot" data-section="intro"><span class="dot-pip"></span><span class="dot-label">了解法律</span></button>
@@ -1184,13 +1181,12 @@ body {
   <button class="nav-dot" data-section="hazards"><span class="dot-pip"></span><span class="dot-label">职业危害</span></button>
   <button class="nav-dot" data-section="actions"><span class="dot-pip"></span><span class="dot-label">五项行动</span></button>
   <button class="nav-dot" data-section="checkup"><span class="dot-pip"></span><span class="dot-label">健康检查</span></button>
-  <button class="nav-dot" data-section="myths"><span class="dot-pip"></span><span class="dot-label">误区辨析</span></button>
   <button class="nav-dot" data-section="rights"><span class="dot-pip"></span><span class="dot-label">你的权利</span></button>
-<button class="nav-dot" data-section="closing"><span class="dot-pip"></span><span class="dot-label">离岗体检豁免</span></button>
-  <button class="nav-dot" data-section="exceptions"><span class="dot-pip"></span><span class="dot-label">总结寄语</span></button>
+  <button class="nav-dot" data-section="exceptions"><span class="dot-pip"></span><span class="dot-label">离岗体检豁免</span></button>
+  <button class="nav-dot" data-section="myths"><span class="dot-pip"></span><span class="dot-label">误区辨析</span></button>
+  <button class="nav-dot" data-section="closing"><span class="dot-pip"></span><span class="dot-label">总结寄语</span></button>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section class="hero" id="hero">
   <div class="hero-bg-rings">
     <div class="ring"></div><div class="ring"></div><div class="ring"></div>
@@ -1215,7 +1211,6 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 1: WHAT IS THE LAW ===== -->
 <section class="section intro-section" id="intro">
   <div class="section-inner">
     <div class="section-label reveal">01 · 了解法律</div>
@@ -1253,7 +1248,6 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 2: COMPARISON ===== -->
 <section class="section comparison-section" id="comparison">
   <div class="section-inner">
     <div class="section-label reveal">02 · 两者的关系</div>
@@ -1294,7 +1288,6 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 3: HAZARDS ===== -->
 <section class="section hazards-section" id="hazards">
   <div class="section-inner">
     <div class="section-label reveal">03 · 认识危害</div>
@@ -1376,7 +1369,6 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 4: ACTIONS ===== -->
 <section class="section actions-section" id="actions">
   <div class="section-inner">
     <div class="section-label reveal">04 · 落实行动</div>
@@ -1427,7 +1419,6 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 5: CHECKUP ===== -->
 <section class="section checkup-section" id="checkup">
   <div class="section-inner">
     <div class="section-label reveal">05 · 三项检查</div>
@@ -1483,89 +1474,9 @@ body {
   </div>
 </section>
 
-<!-- ===== SECTION 6: MYTHS ===== -->
-<section class="section myths-section" id="myths">
-  <div class="section-inner">
-    <div class="section-label reveal">06 · 误区辨析</div>
-    <h2 class="section-title reveal">这些说法，你信过吗？</h2>
-    <p class="section-desc reveal">点击展开，看看这些流传已久的"经验"，哪些是错的。</p>
-    <div class="myth-cards reveal">
-      <!-- MYTH 1 -->
-      <div class="myth-card" onclick="toggleMyth(this)">
-        <div class="myth-question">
-          <div class="myth-q-icon">❓</div>
-          <div class="myth-q-text">
-            <div class="myth-q-label">常见说法</div>
-            <div class="myth-q-main">"少量接触有害物质没关系，剂量决定毒性嘛。"</div>
-          </div>
-          <div class="myth-toggle">⌄</div>
-        </div>
-        <div class="myth-answer">
-          <div class="myth-answer-inner">
-            <div class="myth-verdict partial">⚠️ 不完全正确</div>
-            <div class="myth-a-text">大多数物质确实存在安全剂量，低于国家标准限值风险较低。<br>但<strong>有些物质没有安全剂量</strong>，哪怕微量接触也有不可接受的风险：苯（可致白血病）、铅化合物（致畸）、异氰酸酯（致敏）等。对于这些物质，必须<strong>100%全程防护，不能有任何侥幸心理</strong>。</div>
-          </div>
-        </div>
-      </div>
-      <!-- MYTH 2 -->
-      <div class="myth-card" onclick="toggleMyth(this)">
-        <div class="myth-question">
-          <div class="myth-q-icon">❓</div>
-          <div class="myth-q-text">
-            <div class="myth-q-label">常见说法</div>
-            <div class="myth-q-main">"戴了口罩和手套，就可以高枕无忧了。"</div>
-          </div>
-          <div class="myth-toggle">⌄</div>
-        </div>
-        <div class="myth-answer">
-          <div class="myth-answer-inner">
-            <div class="myth-verdict false">✗ 错误</div>
-            <div class="myth-a-text">防护用品是<strong>"最后一道防线"</strong>，而不是唯一一道。<br>更根本的是改进工艺、安装通风降噪设备。防护用品本身也会失效：选错型号、佩戴不正确、不全程使用，效果都会大打折扣。<br>此外，某些有机溶剂<strong>可通过皮肤吸收</strong>，只戴口罩不穿防化服，仍然可能中毒。防护用品必须用，但不能只靠它。</div>
-          </div>
-        </div>
-      </div>
-      <!-- MYTH 3 -->
-      <div class="myth-card" onclick="toggleMyth(this)">
-        <div class="myth-question">
-          <div class="myth-q-icon">❓</div>
-          <div class="myth-q-text">
-            <div class="myth-q-label">常见说法</div>
-            <div class="myth-q-main">"我急着离职，离职体检可以不做吧？"</div>
-          </div>
-          <div class="myth-toggle">⌄</div>
-        </div>
-        <div class="myth-answer">
-          <div class="myth-answer-inner">
-            <div class="myth-verdict false">✗ 原则上不行</div>
-            <div class="myth-a-text">《职业病防治法》规定：接触职业病危害的同学，必须完成离岗职业健康检查后才能解除劳动合同。<br>只有两种例外：<strong>①</strong>离岗前90天内已做过在岗检查且结果正常、危害无变化；<strong>②</strong>接触危害岗位不足30天且实际危害浓度低于国家标准。</div>
-          </div>
-        </div>
-      </div>
-      <!-- MYTH 4 -->
-      <div class="myth-card" onclick="toggleMyth(this)">
-        <div class="myth-question">
-          <div class="myth-q-icon">❓</div>
-          <div class="myth-q-text">
-            <div class="myth-q-label">常见说法</div>
-            <div class="myth-q-main">"我自己花钱去医院体检了，项目一样，可以替代职业健康检查。"</div>
-          </div>
-          <div class="myth-toggle">⌄</div>
-        </div>
-        <div class="myth-answer">
-          <div class="myth-answer-inner">
-            <div class="myth-verdict false">✗ 不能替代</div>
-            <div class="myth-a-text">原因不在于检查项目，而在于<strong>法律效力不同</strong>。《职业病防治法》规定的职业健康检查必须由省级卫生健康部门<strong>备案的专门机构</strong>进行，出具的结论才具有法律后果（如调岗、疑似职业病认定等）。<br><strong>不要自己花冤枉钱</strong>——该做的职业健康检查，公司有义务安排，费用也由公司承担。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SECTION 7: RIGHTS ===== -->
 <section class="section rights-section" id="rights">
   <div class="section-inner">
-    <div class="section-label reveal">07 · 你的权利</div>
+    <div class="section-label reveal">06 · 你的权利</div>
     <h2 class="section-title reveal">法律赋予你的权利</h2>
     <p class="section-desc reveal">这些是《职业病防治法》明确赋予每一位同学的权利，了解它，用好它。</p>
     <div class="rights-grid reveal">
@@ -1603,10 +1514,9 @@ body {
   </div>
 </section>
 
-<!-- ===== EXCEPTIONS ===== -->
 <section class="section exceptions-section" id="exceptions">
   <div class="section-inner">
-    <div class="section-label reveal">08 · 规则细节</div>
+    <div class="section-label reveal">07 · 规则细节</div>
     <h2 class="section-title reveal">离岗体检的两种豁免情况</h2>
     <p class="section-desc reveal">原则上必须做，但以下两种特殊情形，在岗检查可视为离岗检查。</p>
     <div class="exception-boxes reveal">
@@ -1634,8 +1544,80 @@ body {
   </div>
 </section>
 
+<section class="section myths-section" id="myths">
+  <div class="section-inner">
+    <div class="section-label reveal">08 · 误区辨析</div>
+    <h2 class="section-title reveal">这些说法，你信过吗？</h2>
+    <p class="section-desc reveal">点击展开，看看这些流传已久的"经验"，哪些是错的。</p>
+    <div class="myth-cards reveal">
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"少量接触有害物质没关系，剂量决定毒性嘛。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict partial">⚠️ 不完全正确</div>
+            <div class="myth-a-text">大多数物质确实存在安全剂量，低于国家标准限值风险较低。<br>但<strong>有些物质没有安全剂量</strong>，哪怕微量接触也有不可接受的风险：苯（可致白血病）、铅化合物（致畸）、异氰酸酯（致敏）等。对于这些物质，必须<strong>100%全程防护，不能有任何侥幸心理</strong>。</div>
+          </div>
+        </div>
+      </div>
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"戴了口罩和手套，就可以高枕无忧了。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 错误</div>
+            <div class="myth-a-text">防护用品是<strong>"最后一道防线"</strong>，而不是唯一一道。<br>更根本的是改进工艺、安装通风降噪设备。防护用品本身也会失效：选错型号、佩戴不正确、不全程使用，效果都会大打折扣。<br>此外，某些有机溶剂<strong>可通过皮肤吸收</strong>，只戴口罩不穿防化服，仍然可能中毒。防护用品必须用，但不能只靠它。</div>
+          </div>
+        </div>
+      </div>
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"我急着离职，离职体检可以不做吧？"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 原则上不行</div>
+            <div class="myth-a-text">《职业病防治法》规定：接触职业病危害的同学，必须完成离岗职业健康检查后才能解除劳动合同。<br>只有两种例外：<strong>①</strong>离岗前90天内已做过在岗检查且结果正常、危害无变化；<strong>②</strong>接触危害岗位不足30天且实际危害浓度低于国家标准。</div>
+          </div>
+        </div>
+      </div>
+      <div class="myth-card" onclick="toggleMyth(this)">
+        <div class="myth-question">
+          <div class="myth-q-icon">❓</div>
+          <div class="myth-q-text">
+            <div class="myth-q-label">常见说法</div>
+            <div class="myth-q-main">"我自己花钱去医院体检了，项目一样，可以替代职业健康检查。"</div>
+          </div>
+          <div class="myth-toggle">⌄</div>
+        </div>
+        <div class="myth-answer">
+          <div class="myth-answer-inner">
+            <div class="myth-verdict false">✗ 不能替代</div>
+            <div class="myth-a-text">原因不在于检查项目，而在于<strong>法律效力不同</strong>。《职业病防治法》规定的职业健康检查必须由省级卫生健康部门<strong>备案的专门机构</strong>进行，出具的结论才具有法律后果（如调岗、疑似职业病认定等）。<br><strong>不要自己花冤枉钱</strong>——该做的职业健康检查，公司有义务安排，费用也由公司承担。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ===== CLOSING SUMMARY ===== -->
 <section class="section closing-section" id="closing">
   <div class="section-inner">
     <div class="section-label reveal">09 · 总结与寄语</div>
@@ -1675,7 +1657,6 @@ body {
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-logo">小鹏汽车 · 安全管理办公室 · 职业健康安全</div>
   <div class="footer-sub">Environmental Health & Safety</div>
@@ -1757,7 +1738,8 @@ window.addEventListener('scroll', checkReveal);
 checkReveal();
 
 // ===== NAV DOTS =====
-const sections = ['hero','intro','comparison','hazards','actions','checkup','myths','rights','closing','exceptions'];
+// The order here MUST match the DOM exact structure for accurate smooth scrolling calculation.
+const sections = ['hero','intro','comparison','hazards','actions','checkup','rights','exceptions','myths','closing'];
 const dots = document.querySelectorAll('.nav-dot');
 const navContainer = document.getElementById('navDots');
 
